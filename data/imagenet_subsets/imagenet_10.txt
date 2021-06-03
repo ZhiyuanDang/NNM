@@ -1,0 +1,10 @@
+n02056570 King Penguin
+n02085936 Maltese Dog
+n02128757 Snow Leopard
+n02690373 Airliner
+n02692877 Airship
+n03095699 Container Ship
+n04254680 Soccer Ball
+n04285008 Sports Car
+n04467665 Trailer Truck
+n07747607 Orange
