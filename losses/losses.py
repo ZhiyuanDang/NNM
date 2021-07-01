@@ -99,7 +99,7 @@ class SCANLoss(nn.Module):
         self.t = 0.5
         self.confidence_ce = ConfidenceBasedCE(0.95, True)
 
-    def forward(self, anchors, neighbors, clustering_results, index, batch_index):
+    def forward(self, anchors, neighbors, anchor_augmented, clustering_results, index, batch_index):
         """
         input:
             - anchors: logits for anchor images w/ shape [b, num_classes]
@@ -112,12 +112,13 @@ class SCANLoss(nn.Module):
         b, n = anchors.size()
         anchors_prob = self.softmax(anchors)
         positives_prob = self.softmax(neighbors)
+        anchor_augmented_prob = self.softmax(anchor_augmented)
 
         positives_prob_augmented = anchors_prob[batch_index,:]
 
         positives_prob = torch.cat([positives_prob, positives_prob_augmented], dim=0)
         
-        anchors_prob = torch.cat([anchors_prob, anchors_prob], dim=0)
+        anchors_prob = torch.cat([anchors_prob, anchor_augmented_prob], dim=0)
 
         
        

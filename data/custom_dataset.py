@@ -77,6 +77,9 @@ class NeighborsDataset(Dataset):
 
         anchor['image'] = self.anchor_transform(anchor['image'])
         neighbor['image'] = self.neighbor_transform(neighbor['image'])
+
+        anchor_image = self.dataset.__getitem__(index)
+        output['anchor_augmented'] = self.augmentation_transform(anchor_image['image'])
         
 
         output['anchor'] = anchor['image']

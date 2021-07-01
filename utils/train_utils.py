@@ -66,23 +66,24 @@ def scan_train(train_loader, model, criterion, optimizer, epoch, update_cluster_
         # Forward pass
         anchors = batch['anchor'].to('cuda',non_blocking=True)
         neighbors = batch['neighbor'].to('cuda',non_blocking=True)
-        
+        anchor_augmented = batch['anchor_augmented'].to('cuda',non_blocking=True)
        
         if update_cluster_head_only: # Only calculate gradient for backprop of linear layer
             with torch.no_grad():
                 anchors_features = model(anchors, forward_pass='backbone')
                 neighbors_features = model(neighbors, forward_pass='backbone')
-
+                anchor_augmented_features = model(anchor_augmented, forward_pass='backbone')
             anchors_output = model(anchors_features, forward_pass='head')
             neighbors_output = model(neighbors_features, forward_pass='head')
-            
+            anchor_augmented_output = model(anchor_augmented_features, forward_pass='head')
 
         else: # Calculate gradient for backprop of complete network
             anchors_features = model(anchors, forward_pass='backbone')
             neighbors_features = model(neighbors, forward_pass='backbone')
-            
+            anchor_augmented_features = model(anchor_augmented, forward_pass='backbone')
             anchors_output = model(anchors_features, forward_pass='head')
             neighbors_output = model(neighbors_features, forward_pass='head')
+            anchor_augmented_output = model(anchor_augmented_features, forward_pass='head')
         
         _, initial_rank = search_raw_array_pytorch(res, anchors_features, anchors_features, 2)
 
@@ -90,12 +91,12 @@ def scan_train(train_loader, model, criterion, optimizer, epoch, update_cluster_
 
         # Loss for every head
         total_loss, consistency_loss, ce_loss, entropy_loss = [], [], [], []
-        for j, (anchors_output_subhead, neighbors_output_subhead) in enumerate(zip(anchors_output, neighbors_output)):
+        for j, (anchors_output_subhead, neighbors_output_subhead, anchor_augmented_output_subhead) in enumerate(zip(anchors_output, neighbors_output, anchor_augmented_output)):
             if clustering_results is not None:
                 clustering_results_head = clustering_results[j]
             else:
                 clustering_results_head = None
-            total_loss_, consistency_loss_, ce_loss_, entropy_loss_ = criterion(anchors_output_subhead, neighbors_output_subhead, clustering_results_head, index, initial_rank_index)
+            total_loss_, consistency_loss_, ce_loss_, entropy_loss_ = criterion(anchors_output_subhead, neighbors_output_subhead, anchor_augmented_output_subhead, clustering_results_head, index, initial_rank_index)
             total_loss.append(total_loss_)
             consistency_loss.append(consistency_loss_)
             entropy_loss.append(entropy_loss_)
