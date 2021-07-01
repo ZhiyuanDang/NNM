@@ -56,11 +56,13 @@ However, due to issues in SCAN, self-label is not suitable for NNM. Thus, we rem
 
 ## Citation
 ```
-@inproceedings{dang2021nearest,
-	title={Nearest Neighbor Matching for Deep Clustering},
-	author={Dang, Zhiyuan and Deng, Cheng and Yang, Xu and Wei, Kun and Huang, Heng},
-	booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-	year={2021}
+@InProceedings{Dang_2021_CVPR,
+    author    = {Dang, Zhiyuan and Deng, Cheng and Yang, Xu and Wei, Kun and Huang, Heng},
+    title     = {Nearest Neighbor Matching for Deep Clustering},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2021},
+    pages     = {13693-13702}
 }
 ```
 
