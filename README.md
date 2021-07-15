@@ -37,7 +37,7 @@ We can directly use the pre-text model from [SCAN](https://github.com/wvangansbe
 
 `python simclr.py --config_env configs/env.yml --config_exp configs/pretext/simclr_cifar10.yml`. 
 
-Next, we run the clustering step: 
+Next, we run the clustering step (optional): 
 
 `python scan.py --config_env configs/env.yml --config_exp configs/scan/scan_cifar10.yml --gpus 0 (--seed 1234)`.
 
