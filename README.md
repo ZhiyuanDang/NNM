@@ -2,14 +2,14 @@
 
 Forked from SCAN (https://github.com/wvangansbeke/Unsupervised-Classification).
 
-## Introduction
+# Introduction
 
 
 <img src="images/ill_idea.jpg" width="400" />
 
 <p> The illustration of our idea. We propose to match more semantically nearest neighbors from between <b>local (batch)</b> and <b>global (overall)</b> level. Benefit from the dynamic updated deep features with iteration and epoch increases, we can construct more and more semantically confident sample pairs from samples and its neighbors. </p>
 
-## Framework
+# Framework
 Local Nearest Neighbor Matching
 
 <img src="images/local_loss.jpg" width="400" />
@@ -20,14 +20,14 @@ Global Nearest Neighbor Matching
 
 For specifical loss, please refer [paper](./dzy-CVPR2021-NNM-final.pdf) and [poster](./4001-poster.pdf).
 
-## Main Results
+# Main Results
 <img src="images/results.jpg" width="800" />
 
 
-## Run
-### Requirements
+# Run
+## Requirements
 Python 3.7 and Pytorch 1.4.0 are required. Please refer to [requirements.yaml](./requirements.yaml) for more details.
-### Usages
+## Usages
 
 Clone this repo: `git clone https://github.com/ZhiyuanDang/NNM.git`.
 
@@ -51,10 +51,16 @@ And the Top-3 images is:
 
 However, due to issues in SCAN, self-label is not suitable for NNM. Thus, we remove this file.
 
+# Trained Models
+|  Models   | ACC  | Links |
+|  ----  | ----  | ---- |
+| CIFAR-10  | 0.8430 | [Google Drive](https://drive.google.com/file/d/1_7tua1Sam5T1s9fhopAw3buIBLrnI3dy/view?usp=sharing) |
+| CIFAR-20  | 0.4773 | [Google Drive](https://drive.google.com/file/d/1-kqS3Myrw6S1Y9O0kjsHB3kiCv1_d-yw/view?usp=sharing) |
+| STL-10  | 0.8084 | [Google Drive](https://drive.google.com/file/d/1aC4aKkoRO2kKAQv1COYcucqRcZ6rdk59/view?usp=sharing) |
 
 
 
-## Citation
+# Citation
 ```
 @InProceedings{Dang_2021_CVPR,
     author    = {Dang, Zhiyuan and Deng, Cheng and Yang, Xu and Wei, Kun and Huang, Heng},
