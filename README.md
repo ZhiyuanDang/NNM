@@ -23,6 +23,21 @@ For specifical loss, please refer [paper](./dzy-CVPR2021-NNM-final.pdf) and [pos
 # Main Results
 <img src="images/results.jpg" width="800" />
 
+# Pre-Trained Models
+|  Models    | Links |
+|  ----   | ---- |
+| CIFAR-10   | [Google Drive](https://drive.google.com/file/d/1Wk3wJZ1puU8ptAaMgLOhviG54ooGMXPf/view?usp=sharing) |
+| CIFAR-20   | [Google Drive](https://drive.google.com/file/d/1GELVDCmompIT12iKv-Ib4SBNnfohmUTH/view?usp=sharing) |
+| STL-10   | [Google Drive](https://drive.google.com/file/d/1ZK5zs6jfjm6_CCm4gf6Ji0gGGrQCc0bk/view?usp=sharing) |
+
+# Trained Models
+|  Models   | ACC  | Links |
+|  ----  | ----  | ---- |
+| CIFAR-10  | 0.8430 | [Google Drive](https://drive.google.com/file/d/1_7tua1Sam5T1s9fhopAw3buIBLrnI3dy/view?usp=sharing) |
+| CIFAR-20  | 0.4773 | [Google Drive](https://drive.google.com/file/d/1-kqS3Myrw6S1Y9O0kjsHB3kiCv1_d-yw/view?usp=sharing) |
+| STL-10  | 0.8084 | [Google Drive](https://drive.google.com/file/d/1aC4aKkoRO2kKAQv1COYcucqRcZ6rdk59/view?usp=sharing) |
+
+
 
 # Run
 ## Requirements
@@ -50,14 +65,6 @@ And the Top-3 images is:
 <img src="images/protype-cifar10.jpg" width="800" />
 
 However, due to issues in SCAN, self-label is not suitable for NNM. Thus, we remove this file.
-
-# Trained Models
-|  Models   | ACC  | Links |
-|  ----  | ----  | ---- |
-| CIFAR-10  | 0.8430 | [Google Drive](https://drive.google.com/file/d/1_7tua1Sam5T1s9fhopAw3buIBLrnI3dy/view?usp=sharing) |
-| CIFAR-20  | 0.4773 | [Google Drive](https://drive.google.com/file/d/1-kqS3Myrw6S1Y9O0kjsHB3kiCv1_d-yw/view?usp=sharing) |
-| STL-10  | 0.8084 | [Google Drive](https://drive.google.com/file/d/1aC4aKkoRO2kKAQv1COYcucqRcZ6rdk59/view?usp=sharing) |
-
 
 
 # Citation
